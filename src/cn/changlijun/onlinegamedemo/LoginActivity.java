@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 public class LoginActivity extends NetBaseActivity {
-	private String its[] = { "炎黄争霸", "龙行天下" };
+	private String its[] = { "炎黄争霸", "龙行天下","一统天下" };
 	private EditText etUsername;
 	private EditText etPassword;
 
