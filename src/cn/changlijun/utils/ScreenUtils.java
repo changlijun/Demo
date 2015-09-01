@@ -1,18 +1,39 @@
 package cn.changlijun.utils;
 
-import android.app.Activity;
-import android.util.DisplayMetrics;
+import android.content.Context;
 
 public class ScreenUtils {
-	public static int GetDisplayWidth(Activity activity) {
-		DisplayMetrics dm = new DisplayMetrics();
-		activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
-		return dm.widthPixels;
+	/**
+	 * 
+	 * @param context
+	 * @return 宽度像素值
+	 */
+	public static int GetDisplayWidth(Context context) {
+		return context.getResources().getDisplayMetrics().widthPixels;
 	}
-	
-	public static int GetDisplayHeight(Activity activity) {
-		DisplayMetrics dm = new DisplayMetrics();
-		activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
-		return dm.heightPixels;
+	/**
+	 * 
+	 * @param context
+	 * @return 高度像素值
+	 */
+	public static int GetDisplayHeight(Context context) {
+		return context.getResources().getDisplayMetrics().heightPixels;
 	}
+
+	/**
+	 * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+	 */
+	public static int dip2px(Context context, float dpValue) {
+		final float scale = context.getResources().getDisplayMetrics().density;
+		return (int) (dpValue * scale + 0.5f);
+	}
+
+	/**
+	 * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
+	 */
+	public static int px2dip(Context context, float pxValue) {
+		final float scale = context.getResources().getDisplayMetrics().density;
+		return (int) (pxValue / scale + 0.5f);
+	}
+
 }
